@@ -165,4 +165,5 @@ $ python scenarios/main.py
 
 -----------------------------------------------------------------------------------------------------------------
 ## How to run our added code
-We added moderator.py to the gpt4 folder in the code base provided above.
+We added moderator.py, data_exfiltration_sanitized.py, remote_control_sanitized.py, spread_santized.py, and inspection_agent.py to the code base provided above.
+Follow the instructions above to get everything setup, and then navigate to the llm-security folder and type 'python main.py' to get the program started. Choose whichever scenario you would like to demo.
