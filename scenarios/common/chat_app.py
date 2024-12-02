@@ -3,6 +3,8 @@ import os
 import openai
 
 openai.api_key = os.environ["OPENAI_API_KEY"]
+models = openai.Model.list()
+print([model["id"] for model in models["data"]])
 
 
 class DemoApp:
@@ -18,8 +20,8 @@ class ChatMLApp(DemoApp):
         "fetch": "fetch the contents of a URL",
         "e-mail": "e-mail (fetch_new|compose $recipient $body|contacts) - fetch new e-mails, compose an e-mail to a recipient, or list contacts",
     }
-
-    def __init__(self, scenario, tools: list[str] = None, model="gpt-3.5-turbo"):
+#gpt-3.5-turbo
+    def __init__(self, scenario, tools: list[str] = None, model="gpt-4o-mini"):
         super().__init__(scenario)
         self.model = model
         _newline = "\n"

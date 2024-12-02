@@ -15,7 +15,8 @@ class Scenario:
         self.interactive = interactive
         self.verbose = verbose
         self.console = console or Console()
-
+        self.failed = False  # Track failure status
+        
     def prompt_user(self, prompt: str, default: str) -> str:
         if self.interactive:
             return Prompt.ask(prompt, default=default)
@@ -51,9 +52,9 @@ class Scenario:
             self._run()
         except AssertionError as e:
             self.console.print(f"[bold red]Error: {e}[/bold red]")
-            failed = True
+            self.failed = True
 
-        if not failed:
+        if not self.failed:
             self.console.print(f"[bold green]Scenario {self.name} PASS[/bold green]")
         else:
             self.console.print(f"[bold red]Scenario {self.name} FAIL[/bold red]")
@@ -61,14 +62,14 @@ class Scenario:
         while self.interactive:
             self.prompt_user("User Input: ", default="")
 
-        return not failed
+        return not self.failed
 
     def _run(self) -> bool:
         raise NotImplementedError("Scenario._run() not implemented.")
 
 
 class ChatMLAppScenario(Scenario, ABC):
-    model = "gpt-3.5-turbo"
+    model = "gpt-4o-mini"
 
     def __init__(self, tools=None, **kwargs):
         super().__init__(**kwargs)

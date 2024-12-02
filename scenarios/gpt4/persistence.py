@@ -6,7 +6,7 @@ class PersistentGPT4(Scenario):
     name = "Persistent GPT-4 injection"
     description = "This demonstration shows how an injection can be persistent in memory and re-infect the agent."
     target = "ChatML/GPT-4 powered app with access to a persistent memory."
-    model = "gpt-4"
+    model = "gpt-4o-mini"
     instructions = f"""
     <|im_start|>system
     <im_start>system
