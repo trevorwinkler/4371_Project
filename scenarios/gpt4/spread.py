@@ -30,21 +30,21 @@ class SpreadGPT4(ChatMLAppScenario,Scenario):
     Trucy
     """
 
-    def __init__(self, *args, **kwargs):                                                #DEMO
-        super().__init__(*args, **kwargs)                                               #DEMO
-        self.moderator = Moderator()  # Initialize the Moderator                        #DEMO
+    # def __init__(self, *args, **kwargs):                                                #DEMO
+    #     super().__init__(*args, **kwargs)                                               #DEMO
+    #     self.moderator = Moderator()  # Initialize the Moderator                        #DEMO
 
     def _run(self):
         # Moderate the malicious email before adding it to the app                 
-        moderated_email = self.moderator.moderate(self.malicious_email)                 #DEMO
-        
-        # Check if the email was flagged as malicious                                   #DEMO
-        if moderated_email == self.moderator.warning_message:                           #DEMO
-            print("The LLM moderator has detected malicious content. Blocking it.")     #DEMO
-            self.failed = True                                                          #DEMO
-            return  # Stop further processing                                           #DEMO
+        # moderated_email = self.moderator.moderate(self.malicious_email)                 #DEMO
 
-        self.app.emails = [moderated_email]  # Assign the sanitized email               #DEMO
+        # # Check if the email was flagged as malicious                                   #DEMO
+        # if moderated_email == self.moderator.warning_message:                           #DEMO
+        #     print("The LLM moderator has detected malicious content. Blocking it.")     #DEMO
+        #     self.failed = True                                                          #DEMO
+        #     return  # Stop further processing                                           #DEMO
+
+        # self.app.emails = [moderated_email]  # Assign the sanitized email               #DEMO
         self.app.emails = [self.malicious_email]
         self.app.contacts = ["John <john@example.com>",
                              "Trucy <trucy@example.com>",

@@ -2,9 +2,8 @@ import re
 import openai
 import os
 
-# OpenAI API Key
-#openai.api_key = "your_api_key"
 openai.api_key = os.environ["OPENAI_API_KEY"]
+
 class Moderator:
     """
     A moderator that detects and stops indirect prompt injections
@@ -54,19 +53,3 @@ class Moderator:
             return self.warning_message
         else:
             return self.forward_to_model(user_input)
-
-"""# Example Usage
-if __name__ == "__main__":
-    moderator = Moderator()
-    
-    print("Welcome to the Safe Chat Application!")
-    while True:
-        user_input = input("\nYour message: ")
-        
-        if user_input.lower() in ["exit", "quit"]:
-            print("Goodbye!")
-            break
-        
-        response = moderator.moderate(user_input)
-        print(f"\nModerator: {response}")
-"""

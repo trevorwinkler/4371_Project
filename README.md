@@ -161,5 +161,8 @@ $ python scenarios/main.py
 }
 ```
 
-
 [**Paper on ArXiv**](https://arxiv.org/abs/2302.12173) [(PDF direct link)](https://arxiv.org/pdf/2302.12173.pdf)
+
+-----------------------------------------------------------------------------------------------------------------
+## How to run our added code
+We added moderator.py to the gpt4 folder in the code base provided above.
